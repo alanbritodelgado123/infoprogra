@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguaje de IV Generación - POO | Infografía</title>
+    
+    <!-- Nerd Fonts - Symbols -->
+    <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== PALETA GRUVBOX LIGHT ========== */
+        :root {
+            --bg: #fbf1c7;
+            --bg0-h: #f9f5d7;
+            --bg0-s: #f2e5bc;
+            --bg1: #ebdbb2;
+            --bg2: #d5c4a1;
+            --bg3: #bdae93;
+            --bg4: #a89984;
+            
+            --fg: #3c3836;
+            --fg0: #282828;
+            --fg1: #3c3836;
+            --fg2: #504945;
+            --fg3: #665c54;
+            --fg4: #7c6f64;
+            
+            --red: #cc241d;
+            --red-dark: #9d0006;
+            --green: #98971a;
+            --green-dark: #79740e;
+            --yellow: #d79921;
+            --yellow-dark: #b57614;
+            --blue: #458588;
+            --blue-dark: #076678;
+            --purple: #b16286;
+            --purple-dark: #8f3f71;
+            --aqua: #689d6a;
+            --aqua-dark: #427b58;
+            --orange: #d65d0e;
+            --orange-dark: #af3a03;
+            --gray: #928374;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* ========== HEADER ========== */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg0-h) 0%, var(--bg1) 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 3px solid var(--orange);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--yellow) 0%, transparent 70%);
+            opacity: 0.05;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--fg0);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 .icon {
+            color: var(--orange);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: var(--fg3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .unit-badge {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--bg);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ========== SECCIÓN PRINCIPAL ========== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        /* ========== TARJETAS ========== */
+        .card {
+            background: var(--bg0-h);
+            border-radius: 16px;
+            padding: 25px;
+            border: 2px solid var(--bg3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(60, 56, 54, 0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fg0);
+        }
+        
+        .card-content {
+            color: var(--fg2);
+        }
+        
+        .card-content p {
+            margin-bottom: 15px;
+        }
+        
+        .card-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            border-bottom: 1px dashed var(--bg3);
+        }
+        
+        .card-content li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* ========== COLORES DE TARJETAS ========== */
+        .card-red { border-color: var(--red); }
+        .card-red .card-icon { background: var(--red); color: var(--bg); }
+        .card-red .card-title { color: var(--red-dark); }
+        .card-red li::before { color: var(--red); }
+        
+        .card-orange { border-color: var(--orange); }
+        .card-orange .card-icon { background: var(--orange); color: var(--bg); }
+        .card-orange .card-title { color: var(--orange-dark); }
+        .card-orange li::before { color: var(--orange); }
+        
+        .card-yellow { border-color: var(--yellow); }
+        .card-yellow .card-icon { background: var(--yellow); color: var(--bg); }
+        .card-yellow .card-title { color: var(--yellow-dark); }
+        .card-yellow li::before { color: var(--yellow); }
+        
+        .card-green { border-color: var(--green); }
+        .card-green .card-icon { background: var(--green); color: var(--bg); }
+        .card-green .card-title { color: var(--green-dark); }
+        .card-green li::before { color: var(--green); }
+        
+        .card-aqua { border-color: var(--aqua); }
+        .card-aqua .card-icon { background: var(--aqua); color: var(--bg); }
+        .card-aqua .card-title { color: var(--aqua-dark); }
+        .card-aqua li::before { color: var(--aqua); }
+        
+        .card-blue { border-color: var(--blue); }
+        .card-blue .card-icon { background: var(--blue); color: var(--bg); }
+        .card-blue .card-title { color: var(--blue-dark); }
+        .card-blue li::before { color: var(--blue); }
+        
+        .card-purple { border-color: var(--purple); }
+        .card-purple .card-icon { background: var(--purple); color: var(--bg); }
+        .card-purple .card-title { color: var(--purple-dark); }
+        .card-purple li::before { color: var(--purple); }
+        
+        /* ========== SECCIÓN 4GL ========== */
+        .section-4gl {
+            background: linear-gradient(135deg, var(--bg0-s) 0%, var(--bg1) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid var(--blue);
+        }
+        
+        .section-4gl h2 {
+            text-align: center;
+            color: var(--blue-dark);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .section-4gl h2 i {
+            margin-right: 10px;
+        }
+        
+        .definition-box {
+            background: var(--bg0-h);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--blue);
+        }
+        
+        .definition-box p {
+            color: var(--fg2);
+            font-size: 1.1rem;
+        }
+        
+        .definition-box strong {
+            color: var(--blue-dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .feature-item {
+            background: var(--bg0-h);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid var(--bg3);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            border-color: var(--blue);
+            transform: scale(1.02);
+        }
+        
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .feature-item h4 {
+            color: var(--fg1);
+            margin-bottom: 5px;
+        }
+        
+        .feature-item p {
+            color: var(--fg3);
+            font-size: 0.85rem;
+        }
+        
+        /* ========== PILARES POO ========== */
+        .pilares-section {
+            background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid var(--purple);
+        }
+        
+        .pilares-section h2 {
+            text-align: center;
+            color: var(--purple-dark);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .pilares-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .pilar-card {
+            background: var(--bg0-h);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pilar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .pilar-encapsulamiento::before { background: var(--red); }
+        .pilar-herencia::before { background: var(--green); }
+        .pilar-polimorfismo::before { background: var(--purple); }
+        
+        .pilar-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .pilar-encapsulamiento .pilar-icon { background: linear-gradient(135deg, var(--red), var(--orange)); color: var(--bg); }
+        .pilar-herencia .pilar-icon { background: linear-gradient(135deg, var(--green), var(--aqua)); color: var(--bg); }
+        .pilar-polimorfismo .pilar-icon { background: linear-gradient(135deg, var(--purple), var(--blue)); color: var(--bg); }
+        
+        .pilar-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .pilar-encapsulamiento h3 { color: var(--red-dark); }
+        .pilar-herencia h3 { color: var(--green-dark); }
+        .pilar-polimorfismo h3 { color: var(--purple-dark); }
+        
+        .pilar-card p {
+            color: var(--fg2);
+            margin-bottom: 15px;
+        }
+        
+        .pilar-card .example {
+            background: var(--bg1);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--fg2);
+            text-align: left;
+            border: 1px solid var(--bg3);
+        }
+        
+        .pilar-card .example .keyword { color: var(--red); }
+        .pilar-card .example .class-name { color: var(--yellow-dark); }
+        .pilar-card .example .method { color: var(--blue); }
+        .pilar-card .example .comment { color: var(--gray); }
+        
+        /* ========== SECCIÓN OBJETO ========== */
+        .objeto-section {
+            background: linear-gradient(135deg, var(--bg0-h) 0%, var(--bg1) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid var(--aqua);
+        }
+        
+        .objeto-section h2 {
+            text-align: center;
+            color: var(--aqua-dark);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .objeto-section .section-subtitle {
+            text-align: center;
+            color: var(--fg3);
+            margin-bottom: 30px;
+        }
+        
+        .objeto-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .objeto-center {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--aqua), var(--blue));
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(104, 157, 106, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .objeto-center i {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .objeto-components {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        @media (max-width: 800px) {
+            .objeto-components {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .component-card {
+            background: var(--bg0-h);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid var(--bg3);
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(60, 56, 54, 0.1);
+        }
+        
+        .component-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .component-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .component-card p {
+            color: var(--fg3);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .component-card .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .component-propiedades i { color: var(--yellow); }
+        .component-propiedades h4 { color: var(--yellow-dark); }
+        .component-propiedades { border-color: var(--yellow); }
+        .component-propiedades .tag { background: var(--yellow); color: var(--bg); }
+        
+        .component-metodos i { color: var(--blue); }
+        .component-metodos h4 { color: var(--blue-dark); }
+        .component-metodos { border-color: var(--blue); }
+        .component-metodos .tag { background: var(--blue); color: var(--bg); }
+        
+        .component-funciones i { color: var(--green); }
+        .component-funciones h4 { color: var(--green-dark); }
+        .component-funciones { border-color: var(--green); }
+        .component-funciones .tag { background: var(--green); color: var(--bg); }
+        
+        .component-eventos i { color: var(--red); }
+        .component-eventos h4 { color: var(--red-dark); }
+        .component-eventos { border-color: var(--red); }
+        .component-eventos .tag { background: var(--red); color: var(--bg); }
+        
+        /* ========== CLASE ========== */
+        .clase-section {
+            background: linear-gradient(135deg, var(--bg1) 0%, var(--bg0-s) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid var(--yellow);
+        }
+        
+        .clase-section h2 {
+            text-align: center;
+            color: var(--yellow-dark);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .clase-diagram {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .clase-box {
+            background: var(--bg0-h);
+            border-radius: 12px;
+            overflow: hidden;
+            min-width: 280px;
+            border: 2px solid var(--yellow);
+            box-shadow: 0 5px 20px rgba(215, 153, 33, 0.15);
+        }
+        
+        .clase-box-header {
+            background: var(--yellow);
+            color: var(--bg);
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .clase-box-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--bg3);
+        }
+        
+        .clase-box-section:last-child {
+            border-bottom: none;
+        }
+        
+        .clase-box-section h5 {
+            color: var(--fg3);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .clase-box-section code {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--fg2);
+            padding: 3px 0;
+        }
+        
+        .clase-box-section code .type { color: var(--blue); }
+        .clase-box-section code .name { color: var(--fg1); }
+        .clase-box-section code .visibility { color: var(--purple); }
+        
+        .instancia-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            font-size: 2rem;
+        }
+        
+        .instancia-arrow span {
+            font-size: 0.9rem;
+            color: var(--fg3);
+            margin-top: 5px;
+        }
+        
+        .objeto-box {
+            background: var(--bg0-h);
+            border-radius: 12px;
+            overflow: hidden;
+            min-width: 200px;
+            border: 2px solid var(--aqua);
+            box-shadow: 0 5px 20px rgba(104, 157, 106, 0.15);
+        }
+        
+        .objeto-box-header {
+            background: var(--aqua);
+            color: var(--bg);
+            padding: 12px 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .objeto-box-content {
+            padding: 15px 20px;
+        }
+        
+        .objeto-box-content code {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--fg2);
+            padding: 3px 0;
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--bg1);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid var(--bg3);
+        }
+        
+        .footer p {
+            color: var(--fg3);
+            margin-bottom: 5px;
+        }
+        
+        .footer .author {
+            font-weight: 700;
+            color: var(--fg1);
+            font-size: 1.1rem;
+        }
+        
+        .footer .subject {
+            color: var(--orange-dark);
+            font-weight: 600;
+        }
+        
+        /* ========== CÓDIGO EJEMPLO ========== */
+        .code-block {
+            background: var(--fg0);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--bg);
+            display: block;
+            white-space: pre;
+        }
+        
+        .code-block .keyword { color: var(--red); }
+        .code-block .class-name { color: var(--yellow); }
+        .code-block .method { color: var(--aqua); }
+        .code-block .string { color: var(--green); }
+        .code-block .comment { color: var(--gray); }
+        .code-block .variable { color: var(--blue); }
+        
+        /* ========== UTILIDADES ========== */
+        .highlight {
+            background: var(--yellow);
+            color: var(--fg0);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge-red { background: var(--red); color: var(--bg); }
+        .badge-green { background: var(--green); color: var(--bg); }
+        .badge-blue { background: var(--blue); color: var(--bg); }
+        .badge-purple { background: var(--purple); color: var(--bg); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- ========== HEADER ========== -->
+        <header class="header">
+            <div class="unit-badge">UNIDAD I</div>
+            <h1>
+                <i class="fa-solid fa-code icon"></i>
+                Lenguaje de IV Generación
+            </h1>
+            <p class="subtitle">Programación Orientada a Objetos - Aspectos Avanzados</p>
+        </header>
+        
+        <!-- ========== SECCIÓN 4GL ========== -->
+        <section class="section-4gl">
+            <h2><i class="fa-solid fa-terminal"></i> Lenguaje de IV Generación (4GL)</h2>
+            
+            <div class="definition-box">
+                <p>
+                    <strong>Definición:</strong> Los lenguajes de cuarta generación (4GL) son lenguajes de programación 
+                    de alto nivel diseñados para reducir el esfuerzo de programación y el tiempo de desarrollo. 
+                    Se enfocan en <strong>qué</strong> se quiere lograr, no en <strong>cómo</strong> hacerlo.
+                </p>
+            </div>
+            
+            <h3 style="color: var(--blue-dark); margin-bottom: 20px; text-align: center;">
+                <i class="fa-solid fa-star"></i> Características Principales
+            </h3>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h4>Alto Nivel</h4>
+                    <p>Mayor abstracción del hardware</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-database"></i>
+                    <h4>Orientado a BD</h4>
+                    <p>Integración con bases de datos</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h4>Productividad</h4>
+                    <p>Desarrollo rápido de aplicaciones</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-desktop"></i>
+                    <h4>Visual</h4>
+                    <p>Interfaces gráficas de desarrollo</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-cube"></i>
+                    <h4>Orientado a Objetos</h4>
+                    <p>Soporte nativo para POO</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <h4>Modular</h4>
+                    <p>Componentes reutilizables</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== PILARES POO ========== -->
+        <section class="pilares-section">
+            <h2><i class="fa-solid fa-building-columns"></i> Los 3 Pilares de la POO</h2>
+            
+            <div class="pilares-grid">
+                
+                <!-- Encapsulamiento -->
+                <div class="pilar-card pilar-encapsulamiento">
+                    <div class="pilar-icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3>Encapsulamiento</h3>
+                    <p>
+                        Oculta los detalles internos de un objeto y expone solo lo necesario. 
+                        Protege los datos mediante modificadores de acceso.
+                    </p>
+                    <div class="example">
+                        <span class="keyword">private</span> <span class="class-name">String</span> nombre;<br>
+                        <span class="keyword">public</span> <span class="class-name">String</span> <span class="method">getNombre</span>() {<br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> nombre;<br>
+                        }
+                    </div>
+                </div>
+                
+                <!-- Herencia -->
+                <div class="pilar-card pilar-herencia">
+                    <div class="pilar-icon">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <h3>Herencia</h3>
+                    <p>
+                        Permite crear nuevas clases basadas en clases existentes, 
+                        heredando sus atributos y métodos. Promueve la reutilización.
+                    </p>
+                    <div class="example">
+                        <span class="keyword">class</span> <span class="class-name">Perro</span> <span class="keyword">extends</span> <span class="class-name">Animal</span> {<br>
+                        &nbsp;&nbsp;<span class="comment">// Hereda de Animal</span><br>
+                        &nbsp;&nbsp;<span class="keyword">void</span> <span class="method">ladrar</span>() { }<br>
+                        }
+                    </div>
+                </div>
+                
+                <!-- Polimorfismo -->
+                <div class="pilar-card pilar-polimorfismo">
+                    <div class="pilar-icon">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <h3>Polimorfismo</h3>
+                    <p>
+                        Permite que objetos de diferentes clases respondan al mismo mensaje 
+                        de formas distintas. "Muchas formas".
+                    </p>
+                    <div class="example">
+                        <span class="class-name">Animal</span> a = <span class="keyword">new</span> <span class="class-name">Perro</span>();<br>
+                        a.<span class="method">hacerSonido</span>(); <span class="comment">// Ladra</span><br>
+                        <span class="class-name">Animal</span> b = <span class="keyword">new</span> <span class="class-name">Gato</span>();<br>
+                        b.<span class="method">hacerSonido</span>(); <span class="comment">// Maulla</span>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- ========== CLASE ========== -->
+        <section class="clase-section">
+            <h2><i class="fa-solid fa-cubes"></i> La Clase: Plantilla del Objeto</h2>
+            
+            <div class="definition-box" style="border-color: var(--yellow); margin-bottom: 25px;">
+                <p>
+                    <strong style="color: var(--yellow-dark);">Clase:</strong> Es una plantilla o molde que define 
+                    la estructura (atributos) y comportamiento (métodos) que tendrán los objetos creados a partir de ella.
+                    Es el <strong>plano</strong> a partir del cual se construyen objetos.
+                </p>
+            </div>
+            
+            <div class="clase-diagram">
+                <div class="clase-box">
+                    <div class="clase-box-header">
+                        <i class="fa-solid fa-car"></i> Clase: Automovil
+                    </div>
+                    <div class="clase-box-section">
+                        <h5><i class="fa-solid fa-database"></i> Atributos</h5>
+                        <code><span class="visibility">-</span> <span class="type">String</span> <span class="name">marca</span></code>
+                        <code><span class="visibility">-</span> <span class="type">String</span> <span class="name">modelo</span></code>
+                        <code><span class="visibility">-</span> <span class="type">int</span> <span class="name">año</span></code>
+                        <code><span class="visibility">-</span> <span class="type">double</span> <span class="name">velocidad</span></code>
+                    </div>
+                    <div class="clase-box-section">
+                        <h5><i class="fa-solid fa-cogs"></i> Métodos</h5>
+                        <code><span class="visibility">+</span> <span class="type">void</span> <span class="name">acelerar()</span></code>
+                        <code><span class="visibility">+</span> <span class="type">void</span> <span class="name">frenar()</span></code>
+                        <code><span class="visibility">+</span> <span class="type">String</span> <span class="name">getInfo()</span></code>
+                    </div>
+                </div>
+                
+                <div class="instancia-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span>instancia</span>
+                </div>
+                
+                <div class="objeto-box">
+                    <div class="objeto-box-header">
+                        <i class="fa-solid fa-car-side"></i> Objeto: miAuto
+                    </div>
+                    <div class="objeto-box-content">
+                        <code>marca = "Toyota"</code>
+                        <code>modelo = "Corolla"</code>
+                        <code>año = 2023</code>
+                        <code>velocidad = 0.0</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== EL OBJETO ========== -->
+        <section class="objeto-section">
+            <h2><i class="fa-solid fa-cube"></i> El Objeto y sus Componentes</h2>
+            <p class="section-subtitle">Un objeto es una instancia de una clase con estado y comportamiento propio</p>
+            
+            <div class="objeto-diagram">
+                <div class="objeto-center">
+                    <i class="fa-solid fa-cube"></i>
+                    OBJETO
+                </div>
+            </div>
+            
+            <div class="objeto-components">
+                
+                <!-- Propiedades -->
+                <div class="component-card component-propiedades">
+                    <i class="fa-solid fa-database"></i>
+                    <h4>Propiedades</h4>
+                    <p>Características o atributos que describen el estado del objeto</p>
+                    <span class="tag">Datos</span>
+                    <div style="margin-top: 15px; text-align: left; background: var(--bg1); padding: 10px; border-radius: 8px;">
+                        <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--fg2);">
+                            nombre = "Juan"<br>
+                            edad = 25<br>
+                            activo = true
+                        </code>
+                    </div>
+                </div>
+                
+                <!-- Métodos -->
+                <div class="component-card component-metodos">
+                    <i class="fa-solid fa-cogs"></i>
+                    <h4>Métodos</h4>
+                    <p>Acciones que el objeto puede realizar, definen su comportamiento</p>
+                    <span class="tag">Acciones</span>
+                    <div style="margin-top: 15px; text-align: left; background: var(--bg1); padding: 10px; border-radius: 8px;">
+                        <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--fg2);">
+                            caminar()<br>
+                            hablar()<br>
+                            calcularEdad()
+                        </code>
+                    </div>
+                </div>
+                
+                <!-- Funciones -->
+                <div class="component-card component-funciones">
+                    <i class="fa-solid fa-square-root-variable"></i>
+                    <h4>Funciones</h4>
+                    <p>Operaciones que retornan un valor después de procesar datos</p>
+                    <span class="tag">Retorno</span>
+                    <div style="margin-top: 15px; text-align: left; background: var(--bg1); padding: 10px; border-radius: 8px;">
+                        <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--fg2);">
+                            getNombre()<br>
+                            sumar(a, b)<br>
+                            calcular()
+                        </code>
+                    </div>
+                </div>
+                
+                <!-- Eventos -->
+                <div class="component-card component-eventos">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h4>Eventos</h4>
+                    <p>Respuestas a acciones del usuario o del sistema</p>
+                    <span class="tag">Triggers</span>
+                    <div style="margin-top: 15px; text-align: left; background: var(--bg1); padding: 10px; border-radius: 8px;">
+                        <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--fg2);">
+                            onClick()<br>
+                            onLoad()<br>
+                            onChange()
+                        </code>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- ========== TARJETAS ADICIONALES ========== -->
+        <div class="main-grid">
+            
+            <!-- Ventajas POO -->
+            <div class="card card-green">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <h3 class="card-title">Ventajas de la POO</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Reutilización de código mediante herencia</li>
+                        <li>Modularidad y organización del código</li>
+                        <li>Facilita el mantenimiento y actualizaciones</li>
+                        <li>Abstracción de problemas complejos</li>
+                        <li>Seguridad mediante encapsulamiento</li>
+                        <li>Flexibilidad con polimorfismo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Ejemplos 4GL -->
+            <div class="card card-blue">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="card-title">Ejemplos de 4GL</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>SQL</strong> - Consultas a bases de datos</li>
+                        <li><strong>Python</strong> - Programación de alto nivel</li>
+                        <li><strong>MATLAB</strong> - Cálculo matemático</li>
+                        <li><strong>R</strong> - Análisis estadístico</li>
+                        <li><strong>Visual Basic</strong> - Desarrollo RAD</li>
+                        <li><strong>PowerBuilder</strong> - Aplicaciones empresariales</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Modificadores de Acceso -->
+            <div class="card card-purple">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="card-title">Modificadores de Acceso</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><span class="badge badge-red">public</span> Accesible desde cualquier lugar</li>
+                        <li><span class="badge badge-blue">private</span> Solo dentro de la clase</li>
+                        <li><span class="badge badge-green">protected</span> Clase y subclases</li>
+                        <li><span class="badge badge-purple">default</span> Dentro del paquete</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Relación Clase-Objeto -->
+            <div class="card card-orange">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <h3 class="card-title">Clase vs Objeto</h3>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li><strong>Clase:</strong> Plantilla, molde, plano</li>
+                        <li><strong>Objeto:</strong> Instancia concreta de la clase</li>
+                        <li>Una clase puede tener múltiples objetos</li>
+                        <li>El objeto tiene valores específicos</li>
+                        <li>La clase define la estructura</li>
+                        <li>El objeto representa la realidad</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer">
+            <p class="author">Juliano Cardona (32.281.199)</p>
+            <p>IUTECP</p>
+            <p class="subject">Lenguaje de Programación IV - Unidad I</p>
+        </footer>
+        
+    </div>
+</body>
+</html>
